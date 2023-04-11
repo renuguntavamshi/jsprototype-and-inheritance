@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Q1.Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype
+</h1>
+<pre>
+    
+class Parent{
+    constructor(name,id){
+this.name=name;
+this.id=id;
+}
+	fullname(){
+	return "Mr. "+this.name;
+	}
+
+}
+let p1=new Parent("vamshi",23);
+console.log(p1.fullname())
+Output:
+Mr. Vamshi;
+</pre>
+<h1>Q2.Write code to explain prototype chaining</h1>
+<pre>function person(name){
+    this.name=name;
+    this.addMrtoname=function(){
+        return "Mr"+" "+this.name;
+    }
+}
+let p1=new person("vamshi");
+console.log(p1)
+console.log(p1.addMrtoname())
+console.log(p1.__proto__)
+console.log(p1.__proto__.__proto__)
+console.log(p1.__proto__.__proto__.__proto__)
+console.log(person.prototype.__proto__);
+let obj={a:1};
+console.log(obj.__proto__);
+
+Output:
+person { name: 'vamshi', addMrtoname: [Function] }
+Mr vamshi
+person {}
+{}
+null
+{}
+{}
+</pre>
+<p>Generally when an object is created it has a constructor ,this constructor points to js object, this js object has a proto null</p>
+<p> Only Object constructor function and functions  has an access to prototype property</p>
+<p>In case of object constructor ,when new object is created with the use of object constructor.The 
+real Object created <br> will search in its own object wheater the properties or methods are available ,If it is <br>
+not available it will search in Object constructor.This process is known as prototype chaining
+</p>
+
+<h1> Q3.Add a method to calculate sum of all elements in Array in array's protype, use that method to calculate sum for multiple arrays</h1>
+<pre>
+    Array.prototype.cal2=function(){
+        let result=0;
+        for(let i=0;i< this.length;i++){
+    result=result+this[i]
+        }
+        return result
+    }
+    
+    let a1=[1,2,5,6];
+    console.log(a1.__proto__.__proto__.__proto__);
+    
+    console.log(a1.cal2());
+
+Output:
+10
+null
+14
+
+</pre>
+<script src="script.js"></script>
+</body>
+</html>
