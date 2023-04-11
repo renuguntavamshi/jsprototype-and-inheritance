@@ -79,6 +79,27 @@ null
 14
 
 </pre>
+<h1>Write a JavaScript function to retrieve all the names of object's own and inherited properties.</h1>
+<pre>
+    function parentobject(name,age){
+        this.name=name;
+        this.age=age;
+        
+    }
+    parentobject.prototype.country="India";
+    parentobject.prototype.country2="India";
+    let obj1=new parentobject("vamshi",23);
+    console.log(obj1.country);
+    
+    function getownandinheritedpropertiesofObject(obj){
+    console.log(Object.getOwnPropertyNames(obj).toString())
+    console.log(Object.getOwnPropertyNames(obj.__proto__).slice(1).toString())
+        
+    }
+    
+    getownandinheritedpropertiesofObject(obj1);
+    
+</pre>
 <script src="script.js"></script>
 </body>
 </html>
